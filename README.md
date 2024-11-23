@@ -5,40 +5,46 @@ The dataset comes from the UCI Machine Learning repository. The data is from a P
 We will be using the CRISP-DM methodology for achieving this goal.
 
 ## Business Understanding
-Business Objective: For targeted direct marketing campaign Identify the main driving factors that contribute to customer able to sucessfully open a long term direct deposit account.
+Business Objective: <br />
+For targeted direct marketing campaign Identify the main driving factors that contribute to customer able to sucessfully open a long term direct deposit account.
 
 ## Data Understanding
 
-The Dataset has 20 features:
-Input variables:
-* bank client data:
-1 - age (numeric)
-2 - job : type of job (categorical: 'admin.','blue-collar','entrepreneur','housemaid','management','retired','self-employed','services','student','technician','unemployed','unknown')
-3 - marital : marital status (categorical: 'divorced','married','single','unknown'; note: 'divorced' means divorced or widowed)
-4 - education (categorical: 'basic.4y','basic.6y','basic.9y','high.school','illiterate','professional.course','university.degree','unknown')
-5 - default: has credit in default? (categorical: 'no','yes','unknown')
-6 - housing: has housing loan? (categorical: 'no','yes','unknown')
-7 - loan: has personal loan? (categorical: 'no','yes','unknown')
-* related with the last contact of the current campaign:
-8 - contact: contact communication type (categorical: 'cellular','telephone')
-9 - month: last contact month of year (categorical: 'jan', 'feb', 'mar', ..., 'nov', 'dec')
-10 - day_of_week: last contact day of the week (categorical: 'mon','tue','wed','thu','fri')
-11 - duration: last contact duration, in seconds (numeric). Important note: this attribute highly affects the output target (e.g., if duration=0 then y='no'). Yet, the duration is not known before a call is performed. Also, after the end of the call y is obviously known. Thus, this input should only be included for benchmark purposes and should be discarded if the intention is to have a realistic predictive model.
-* other attributes:
-12 - campaign: number of contacts performed during this campaign and for this client (numeric, includes last contact)
-13 - pdays: number of days that passed by after the client was last contacted from a previous campaign (numeric; 999 means client was not previously contacted)
-14 - previous: number of contacts performed before this campaign and for this client (numeric)
-15 - poutcome: outcome of the previous marketing campaign (categorical: 'failure','nonexistent','success')
-* social and economic context attributes
-16 - emp.var.rate: employment variation rate - quarterly indicator (numeric)
-17 - cons.price.idx: consumer price index - monthly indicator (numeric)
-18 - cons.conf.idx: consumer confidence index - monthly indicator (numeric)
-19 - euribor3m: euribor 3 month rate - daily indicator (numeric)
-20 - nr.employed: number of employees - quarterly indicator (numeric)
+The Dataset has 20 features:<br />
+<br />
+<b>Input variables: </b><br />
+* Bank client data:<br />
+1 - age (numeric) <br />
+2 - job : type of job (categorical: 'admin.','blue-collar','entrepreneur','housemaid','management','retired','self-employed','services','student','technician','unemployed','unknown') <br />
+3 - marital : marital status (categorical: 'divorced','married','single','unknown'; note: 'divorced' means divorced or widowed)<br />
+4 - education (categorical: 'basic.4y','basic.6y','basic.9y','high.school','illiterate','professional.course','university.degree','unknown')<br />
+5 - default: has credit in default? (categorical: 'no','yes','unknown')<br />
+6 - housing: has housing loan? (categorical: 'no','yes','unknown')<br />
+7 - loan: has personal loan? (categorical: 'no','yes','unknown')<br />
+<br />
+* Related with the last contact of the current campaign:<br />
+8 - contact: contact communication type (categorical: 'cellular','telephone')<br />
+9 - month: last contact month of year (categorical: 'jan', 'feb', 'mar', ..., 'nov', 'dec')<br />
+10 - day_of_week: last contact day of the week (categorical: 'mon','tue','wed','thu','fri')<br />
+11 - duration: last contact duration, in seconds (numeric). Important note: this attribute highly affects the output target (e.g., if duration=0 then y='no'). Yet, the duration is not known before a call is performed. Also, after the end of the call y is obviously known. Thus, this input should only be included for benchmark purposes and should be discarded if the intention is to have a realistic predictive model.<br />
+<br />
+* Other attributes:<br />
+12 - campaign: number of contacts performed during this campaign and for this client (numeric, includes last contact)<br />
+13 - pdays: number of days that passed by after the client was last contacted from a previous campaign (numeric; 999 means client was not previously contacted)<br />
+14 - previous: number of contacts performed before this campaign and for this client (numeric)<br />
+15 - poutcome: outcome of the previous marketing campaign (categorical: 'failure','nonexistent','success')<br />
+<br />
+* Social and economic context attributes<br />
+16 - emp.var.rate: employment variation rate - quarterly indicator (numeric)<br />
+17 - cons.price.idx: consumer price index - monthly indicator (numeric)<br />
+18 - cons.conf.idx: consumer confidence index - monthly indicator (numeric)<br />
+19 - euribor3m: euribor 3 month rate - daily indicator (numeric)<br />
+20 - nr.employed: number of employees - quarterly indicator (numeric)<br />
+<br />
 
-Output variable (desired target):
-21 - y - has the client subscribed a term deposit? (binary: 'yes','no')
-
+<b>Output variable (desired target):</b>
+<br />21 - y - has the client subscribed a term deposit? (binary: 'yes','no')<br />
+<br />
 - Applied the pandas crosstab function to plot the feature and output variable 'y' (whether user opened the long term deposit yes/no)
 - Generated the heatmap to see the correlation between different features
 
@@ -55,7 +61,23 @@ Compared the performance of the Logistic Regression model to our KNN algorithm, 
 
 Each of the models used were compared with respect to train and test score, average training fit time taken. Plotted the ROC curve and AUC value determined for each of the model
 
+| Model               | Train Score | Test Score | Train Time  | Precision | Recall   | Accuracy | ROC AUC  |
+|---------------------|-------------|------------|-------------|-----------|----------|----------|----------|
+| KNN                 | 0.906444    | 0.887866   | 0.085566    | 0.887866  | 0.571279 | 0.887866 | 0.641894 |
+| Logistic Regression | 0.897584    | 0.896031   | 0.065118    | 0.896031  | 0.587303 | 0.896031 | 0.715811 |
+| SVC                 | 0.900227    | 0.897160   | 310.861192  | 0.897160  | 0.588611 | 0.897160 | 0.668186 |
+| Decision Tree       | 0.993187    | 0.825588   | 0.099879    | 0.825588  | 0.596653 | 0.825588 | 0.598467 |
+
+
 # Conclusion:
+
+Based on the above tabular data, LogisticRegression and SVC Models have a high Test score, but LogisticRegression would be an ideal choice here as the fit time is far better from SVM
+The AUC (Area Under the ROC Curve) performance metric <i>(The ROC curve plots the true positive rate (sensitivity) against the false positive rate (1 - specificity)) </i>that evaluates a model's ability to discriminate between classes. The AUC metric is much better compared to  KNN, SVC and Decision Tree models. 
+
+
+# Next Steps:
+
+We can use Grid Search CV varying the hyper parameters across the model, also we can see the impacts on the same models by including all the 20 features the in the input data.
 
 
 
