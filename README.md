@@ -61,7 +61,23 @@ Compared the performance of the Logistic Regression model to our KNN algorithm, 
 
 Each of the models used were compared with respect to train and test score, average training fit time taken. Plotted the ROC curve and AUC value determined for each of the model
 
+| Model               | Train Score | Test Score | Train Time  | Precision | Recall   | Accuracy | ROC AUC  |
+|---------------------|-------------|------------|-------------|-----------|----------|----------|----------|
+| KNN                 | 0.906444    | 0.887866   | 0.085566    | 0.887866  | 0.571279 | 0.887866 | 0.641894 |
+| Logistic Regression | 0.897584    | 0.896031   | 0.065118    | 0.896031  | 0.587303 | 0.896031 | 0.715811 |
+| SVC                 | 0.900227    | 0.897160   | 310.861192  | 0.897160  | 0.588611 | 0.897160 | 0.668186 |
+| Decision Tree       | 0.993187    | 0.825588   | 0.099879    | 0.825588  | 0.596653 | 0.825588 | 0.598467 |
+
+
 # Conclusion:
+
+Based on the above tabular data, LogisticRegression and SVC Models have a high Test score, but LogisticRegression would be an ideal choice here as the fit time is far better from SVM
+The AUC (Area Under the ROC Curve) performance metric <i>(The ROC curve plots the true positive rate (sensitivity) against the false positive rate (1 - specificity)) </i>that evaluates a model's ability to discriminate between classes. The AUC metric is much better compared to  KNN, SVC and Decision Tree models. 
+
+
+# Next Steps:
+
+We can use Grid Search CV varying the hyper parameters across the model, also we can see the impacts on the same models by including all the 20 features the in the input data.
 
 
 
